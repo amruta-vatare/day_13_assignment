@@ -21,6 +21,18 @@ public class FindMaximum {
             return fNum3;
         }
     }
+
+    //Test Case 3
+    private String findMaxString(String str1, String str2, String str3) {
+        if(str1.compareTo(str2)>0 && str1.compareTo(str3)>0){
+            return str1;
+        }else if(str2.compareTo(str1)>0 && str2.compareTo(str3)>0){
+            return str2;
+        }else{
+            return str3;
+        }
+    }
+
     public static void main(String[] args) {
         FindMaximum maximum = new FindMaximum();
         Integer num1 = 100;
@@ -33,9 +45,11 @@ public class FindMaximum {
         Float fNum3 = 39.00f;
         float maxFloat = maximum.findMaxFloat(fNum1,fNum2,fNum3);
         System.out.println("Maximum Float Value is "+maxFloat);
-
-
-
+        String str1 = "Sunny";
+        String str2 = "Jhone";
+        String str3 = "Raj";
+        String result = maximum.findMaxString(str1,str2,str3);
+        System.out.println("Maximum String value is "+result);
 
     }
 }
