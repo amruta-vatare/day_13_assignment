@@ -1,6 +1,7 @@
 package com.bridgeLabs;
 
-public class FindMaximum {
+public class FindMaximum<T extends Comparable<T>> {
+
     //Test Case - 1
     public int findMaxInt(Integer n1,Integer n2,Integer n3){
         if(n1.compareTo(n2)>0 && n1.compareTo(n3)>0){
@@ -32,23 +33,29 @@ public class FindMaximum {
             return str3;
         }
     }
+    //Test Case 4
+    public T findGreater(T n1,T n2,T n3){
+        if(n1.compareTo(n2)>0 && n1.compareTo(n3)>0){
+            return n1;
+        }else if(n2.compareTo(n1) >0 && n2.compareTo(n3)>0){
+            return n2;
+        }else{
+            return n3;
+        }
+    }
 
     public static void main(String[] args) {
-        FindMaximum maximum = new FindMaximum();
-        Integer num1 = 100;
-        Integer num2 = 99;
-        Integer num3 = 50;
-        int maxInt = maximum.findMaxInt(num1,num2,num3);
+
+        FindMaximum<Integer> maximum = new FindMaximum();
+        int maxInt = maximum.findGreater(100,200,50);
         System.out.println("Maximum Integer Value is "+maxInt);
-        Float fNum1 = 19.20f;
-        Float fNum2 = 5.0f;
-        Float fNum3 = 39.00f;
-        float maxFloat = maximum.findMaxFloat(fNum1,fNum2,fNum3);
+
+        FindMaximum<Float> maximum1 = new FindMaximum();
+        float maxFloat = maximum1.findGreater(20.0f,50.00f,5.0f);
         System.out.println("Maximum Float Value is "+maxFloat);
-        String str1 = "Sunny";
-        String str2 = "Jhone";
-        String str3 = "Raj";
-        String result = maximum.findMaxString(str1,str2,str3);
+
+        FindMaximum<String> maximum2 = new FindMaximum();
+        String result = maximum2.findGreater("Amruta","Megha","Roopali");
         System.out.println("Maximum String value is "+result);
 
     }
